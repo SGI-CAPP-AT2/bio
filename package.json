@@ -1,0 +1,25 @@
+{
+  "name": "bio",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SGI-CAPP-AT2/bio.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/SGI-CAPP-AT2/bio/issues"
+  },
+  "homepage": "https://github.com/SGI-CAPP-AT2/bio#readme",
+  "dependencies": {
+    "express": "^5.2.1",
+    "showdown": "^2.1.0"
+  }
+}
