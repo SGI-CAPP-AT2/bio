@@ -1,0 +1,6 @@
+# Netlify configuration
+[build]
+	publish = "."
+	# command = "npm run build" # Uncomment and set if you have a build step
+
+# Add more settings as needed

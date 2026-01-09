@@ -2,6 +2,7 @@ const redirects = require("./pages/redirects.json");
 const showdown = require("showdown");
 const converter = new showdown.Converter();
 const express = require("express");
+const serverless = require("serverless-http");
 const app = express();
 const port = 3000;
 
@@ -44,6 +45,4 @@ app.use((req, res, next) => {
   });
 });
 
-app.listen(port, () => {
-  console.log(`Server is running on http://localhost:${port}`);
-});
+export const handler = serverless(app);

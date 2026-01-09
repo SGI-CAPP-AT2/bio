@@ -20,6 +20,7 @@
   "homepage": "https://github.com/SGI-CAPP-AT2/bio#readme",
   "dependencies": {
     "express": "^5.2.1",
+    "serverless-http": "^4.0.0",
     "showdown": "^2.1.0"
   }
 }
