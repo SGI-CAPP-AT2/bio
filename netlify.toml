@@ -2,7 +2,7 @@
   external_node_modules = ["express"]
   node_bundler = "esbuild"
   directory = "functions" # The folder you created in step 2
-  
+  included_files = ["./**/*"] 
 [[redirects]]
   from = "/*" # Route requests from /* to your function
   to = "/.netlify/functions/app/:splat"
