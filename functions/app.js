@@ -1,10 +1,14 @@
 const redirects = require("../pages/redirects.json");
+
 const showdown = require("showdown");
 const converter = new showdown.Converter();
 const express = require("express");
 const serverless = require("serverless-http");
 const app = express();
-
+const fs = require("fs");
+const path = require("path");
+// Use the correct path to the pages directory (one level up from functions)
+const pagesDir = path.join(__dirname, "..", "pages");
 app.use((req, res, next) => {
   console.log(
     `Received request for: ${req.path} + ${JSON.stringify(redirects)}`
@@ -18,18 +22,14 @@ app.use((req, res, next) => {
 });
 
 app.use((req, res, next) => {
-  const fs = require("fs");
-  const path = require("path");
-  const filePath = path.join(__dirname, "pages", req.path + ".md");
+  const filePath = path.join(pagesDir, req.path + ".md");
   fs.readFile(filePath, "utf8", (err, data) => {
     if (err) {
-      console.error(err);
       fs.readFile(
-        path.join(__dirname, "pages", path.join(req.path, "(root).md")),
+        path.join(pagesDir, req.path, "(root).md"),
         "utf8",
         (err2, data2) => {
           if (err2) {
-            console.error(err2);
             res.status(404).send("Page not found");
           } else {
             const html = converter.makeHtml(data2);
